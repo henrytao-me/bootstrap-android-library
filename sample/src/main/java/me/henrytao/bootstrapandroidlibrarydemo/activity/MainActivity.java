@@ -17,18 +17,12 @@
 package me.henrytao.bootstrapandroidlibrarydemo.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.MenuItem;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import me.henrytao.bootstrapandroidlibrarydemo.R;
 
-public class MainActivity extends BaseActivity {
-
-  @Bind(R.id.toolbar)
-  Toolbar vToolbar;
+public class MainActivity extends AppCompatActivity {
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,23 +31,8 @@ public class MainActivity extends BaseActivity {
   }
 
   @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case R.id.action_info:
-        startActivity(InfoActivity.newIntent(this));
-        return true;
-      case R.id.action_donate:
-        showDonateDialog();
-        return true;
-    }
-    return super.onOptionsItemSelected(item);
-  }
-
-  @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    ButterKnife.bind(this);
-    setSupportActionBar(vToolbar);
   }
 }
